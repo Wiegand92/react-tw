@@ -8,7 +8,7 @@ This is a barebones boilerplate for react with TailwindCSS. It will help you wit
 
 ### **Initial Setup**
 
-Tailwind can be a bit tricky to make work with your linter. To that end this project includes StyleLint, and you should install the stylelint plugin if you are using VSCode. The extension can be found [here](stylelint.vscode-stylelint).
+Tailwind can be a bit tricky to make work with your linter. To that end this project includes StyleLint, and you should install the stylelint plugin if you are using VSCode. The extension can be found [here](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
 
 ### **Other Quirks**
 
