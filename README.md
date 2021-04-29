@@ -28,15 +28,11 @@ Tailwind can produce a very large CSS file if you don't set the purge options. T
 
     ```rm -rf .git```
 
-4. Start the express server 
+4. Start the development server 
     
     ```npm start```
 
-5. Start webpack dev server 
-
-   ```npm run start-dev```
-
-  This project uses webpack dev-server for live reloading. To use it you must have an instance of the express server running because webpack will try to proxy it to handle routes.
+  The start script will start both the nodemon server, and webpack-dev-server, which proxies the nodemon server. This way we have live-reloading on both the front and back-end!
 
 5. Have fun!
 
