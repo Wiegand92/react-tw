@@ -2,7 +2,7 @@ module.exports = {
   purge: {
     enabled: true,
     content: [
-      './src/styles/components/_app.css'
+      './src/styles/**'
     ]
   },
   darkMode: false, // or 'media' or 'class'
