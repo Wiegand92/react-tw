@@ -12,7 +12,9 @@ Tailwind can be a bit tricky to make work with your linter. To that end this pro
 
 ### **Other Quirks**
 
-Tailwind can produce a very large CSS file if you don't set the purge options. That is enabled in this boilerplate, and any files that use tailwind should be added to the content array in tailwind.config.js.
+Tailwind can produce a very large CSS file if you don't set the purge options. That is enabled in this boilerplate but if you add styles anywhere other than the styles folder please add it to the purge array in tailwind.config.js.
+
+Closing out the development server will require you to hit ctrl-c TWO times since the nodemon server and webpack are running concurrently in the terminal window.
 
 ### **Actual Setup**
 
@@ -30,7 +32,7 @@ Tailwind can produce a very large CSS file if you don't set the purge options. T
 
 4. Start the development server 
     
-    ```npm start```
+    ```npm run dev```
 
   The start script will start both the nodemon server, and webpack-dev-server, which proxies the nodemon server. This way we have live-reloading on both the front and back-end!
 
