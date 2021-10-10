@@ -18,109 +18,106 @@ Closing out the development server will require you to hit ctrl-c TWO times sinc
 
 ### **Actual Setup**
 
-1. Clone the repo 
+1. Clone the repo
 
-    ```git clone https://github.com/Wiegand92/react-tw```
+   `git clone https://github.com/Wiegand92/react-tw`
 
 2. Change directories
 
-    ```cd react-tw```
+   `cd react-tw`
 
 3. Remove git history
 
-    ```rm -rf .git```
+   `rm -rf .git`
 
-4. Start the development server 
-    
-    ```npm run dev```
+4. Start the development server
 
-  The start script will start both the nodemon server, and webpack-dev-server, which proxies the nodemon server. This way we have live-reloading on both the front and back-end!
+   `npm run dev`
+
+The start script will start both the nodemon server, and webpack-dev-server, which proxies the nodemon server. This way we have live-reloading on both the front and back-end!
 
 5. Have fun!
 
 ## Tech Included
 
+**Framework**
 
-  **Framework**
+react  
+ react-dom
 
-  react  
-  react-dom
+**Styles**
 
-  **Styles**
+sass
 
-  sass
+- I like sass for the modularity it provides, this is optional
 
-  - I like sass for the modularity it provides, this is optional 
+postcss
 
-  postcss
+- Postcss will handle post-processing and actually run the tailwind compiler.
 
-  - Postcss will handle post-processing and actually run the tailwind compiler.
+tailwindcss
 
-  tailwindcss    
+- Makes life easier
 
-  - Makes life easier
+**Bundling and Browser Support**
 
+webpack  
+ webpack-cli
 
-  **Bundling and Browser Support**
+- This project uses webpack to bundle all of your js and css/scss
 
-  webpack  
-  webpack-cli
+webpack-dev-server
 
-  - This project uses webpack to bundle all of your js and css/scss
+- Live reloading!
 
-  webpack-dev-server
+clean-webpack-plugin
 
-  - Live reloading!
+- Will make sure your public/scripts folder is emptied on re-build.
 
-  clean-webpack-plugin
+source-map-loader
 
-  - Will make sure your public/scripts folder is emptied on re-build.
+- Will make debugging much easier.
 
-  source-map-loader    
+@babel/core
 
-  - Will make debugging much easier.
+- Transpiles/polyfills your JS so you can use up to date syntax.
 
-  @babel/core
+@babel/plugin-proposal-class-properties  
+ @babel/preset-env  
+ @babel/preset-react  
+ babel-loader
 
-  - Transpiles/polyfills your JS so you can use up to date syntax.
+- These will all make babel play nice with react and allow webpack to actually run babel on our code.
 
-  @babel/plugin-proposal-class-properties  
-  @babel/preset-env  
-  @babel/preset-react  
-  babel-loader  
+The following are all loaders for css in webpack. They run in the order listed here, but MUST be put in the opposite order in webpack (this is already done, but is a common source of confusion).
 
-  - These will all make babel play nice with react and allow webpack to actually run babel on our code.
-  
-  The following are all loaders for css in webpack. They run in the order listed here, but MUST be put in the opposite order in webpack (this is already done, but is a common source of confusion).
+postcss-loader  
+ postcss-preset-env  
+ sass-loader  
+ css-loader
 
-  postcss-loader  
-  postcss-preset-env    
-  sass-loader  
-  css-loader    
+style-loader
 
-  style-loader    
+- When we're in developer mode, style loader simply inlines our styles to make rebuilding quicker.
 
-  - When we're in developer mode, style loader simply inlines our styles to make rebuilding quicker.
+mini-css-extract-plugin
 
-  mini-css-extract-plugin    
+- When we run webpack in production mode this will bundle all of our css and put it in /public/scripts/style.css.
 
-  - When we run webpack in production mode this will bundle all of our css and put it in /public/scripts/style.css.
+**Server**
 
+cross-env
 
-  **Server**
+- Allows us to declare a .env variable. Used to determine if we are in developer mode or not so webpack knows how to handle our css files.
 
-  cross-env    
+cors
 
-  - Allows us to declare a .env variable. Used to determine if we are in developer mode or not so webpack knows how to handle our css files.
+- Cross origin resource sharing, in case you need to query a db or call an api.
 
-  cors
+dotenv
 
-  - Cross origin resource sharing, in case you need to query a db or call an api.
-    
-  dotenv
+- This allows us to read from a .env file if we need to declare sensitive variables and hide them from others.
 
-  - This allows us to read from a .env file if we need to declare sensitive variables and hide them from others.
+express
 
-  express
-
-  - Server framework to make building our backend easier.
+- Server framework to make building our backend easier.

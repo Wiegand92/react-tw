@@ -14,8 +14,7 @@ app.use(express.json());
 
 app.use(express.static(__dirname + '/public'));
 
-
 // Start Server //
 app.listen(PORT, () => {
-  console.log(`server started on port: ${PORT}`)
+  console.log(`server started on port: ${PORT}`);
 });
