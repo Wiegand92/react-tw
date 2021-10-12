@@ -1,11 +1,10 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 // In dev mode if env.NODE_ENV is developer //
 const devMode = process.env.NODE_ENV === 'development';
 
-const plugins = [new CleanWebpackPlugin()];
+const plugins = [];
 
 // Enable MiniCss in production only //
 if (!devMode) {
@@ -17,11 +16,14 @@ if (!devMode) {
 }
 
 module.exports = {
+  mode: devMode ? 'development' : 'production',
+
   entry: './src/index.js',
 
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'public/scripts'),
+    path: path.join(__dirname, 'public/scripts'),
+    clean: true,
   },
 
   plugins,
@@ -68,11 +70,11 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    historyApiFallback: true,
     hot: true,
+    open: true,
+    port: 8080,
     proxy: {'/': 'http://localhost:4200'},
-    publicPath: '/scripts/',
-    watchContentBase: true,
   },
 
   devtool: 'cheap-module-source-map',
